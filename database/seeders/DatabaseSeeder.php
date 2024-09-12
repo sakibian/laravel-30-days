@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Job;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,5 +27,12 @@ class DatabaseSeeder extends Seeder
         Post::factory(20)
             ->has(\App\Models\Comment::factory()->count(5))
             ->create();
+
+        // Create jobs
+        $this->call(JobSeeder::class);
+        
+        // Job::factory(20)
+        //     ->has(\App\Models\Comment::factory()->count(5))
+        //     ->create();
     }
 }
